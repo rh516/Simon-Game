@@ -54,7 +54,7 @@ function checkAnswer(currentLevel){
     }
   }
 
-  else{
+  else {
     // clicked button doesn't match the corresponding gamePattern button
     playSound("wrong");
 
