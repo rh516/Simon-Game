@@ -1,1 +1,1 @@
-# Simon-Game website url: https://simongamebyray.netlify.com/
+# Play Here: https://simongamebyray.netlify.com/
