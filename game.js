@@ -47,7 +47,7 @@ function checkAnswer(currentLevel) {
   at the same index in gamePattern */
   if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
     // once the player finishes his/her sequence, the next sequence starts
-    if(userClickedPattern.length === gamePattern.length) {
+    if (userClickedPattern.length === gamePattern.length) {
       setTimeout(function() {
         nextSequence();
       }, 1000);
