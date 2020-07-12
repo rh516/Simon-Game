@@ -9,7 +9,7 @@ let gameStarted = false;
 let level = 0;
 
 $(document).keydown(function() { // player presses a key
-  if(!gameStarted){
+  if (!gameStarted) {
     nextSequence(); // nextSequence is called once at the beginning to start the game
     gameStarted = true;
   }
@@ -45,9 +45,9 @@ $(".btn").click(function() { // player clicks on a button
 function checkAnswer(currentLevel) {
   /* checks if the button most recently clicked on matches the button
   at the same index in gamePattern */
-  if (userClickedPattern[currentLevel] === gamePattern[currentLevel]){
+  if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
     // once the player finishes his/her sequence, the next sequence starts
-    if(userClickedPattern.length === gamePattern.length){
+    if(userClickedPattern.length === gamePattern.length) {
       setTimeout(function() {
         nextSequence();
       }, 1000);
@@ -82,9 +82,11 @@ function playSound(name) {
   audio.play();
 }
 
+
 function animatePress(currentColor) {
   let activeButton = $("#" + currentColor);
   activeButton.addClass("pressed");
+
   setTimeout(function() {
     activeButton.removeClass("pressed");
   }, 100);
