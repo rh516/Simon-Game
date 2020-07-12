@@ -8,7 +8,7 @@ let userClickedPattern = []; // sequence created by the player
 let gameStarted = false;
 let level = 0;
 
-$(document).keydown(function(){ // player presses a key
+$(document).keydown(function() { // player presses a key
   if(!gameStarted){
     nextSequence(); // nextSequence is called once at the beginning to start the game
     gameStarted = true;
@@ -16,7 +16,7 @@ $(document).keydown(function(){ // player presses a key
 });
 
 
-function nextSequence(){
+function nextSequence() {
   level++;
   $("h1").text("Level " + String(level)); // updates level heading
   userClickedPattern = []; // resets each time the function is called
@@ -30,7 +30,7 @@ function nextSequence(){
 }
 
 
-$(".btn").click(function(){ // player clicks on a button
+$(".btn").click(function() { // player clicks on a button
   let userChosenColor = $(this).attr("id"); // gets the button just clicked on
   userClickedPattern.push(userChosenColor); // adds that button to the user sequence array
 
@@ -42,13 +42,13 @@ $(".btn").click(function(){ // player clicks on a button
 });
 
 
-function checkAnswer(currentLevel){
+function checkAnswer(currentLevel) {
   /* checks if the button most recently clicked on matches the button
   at the same index in gamePattern */
   if (userClickedPattern[currentLevel] === gamePattern[currentLevel]){
     // once the player finishes his/her sequence, the next sequence starts
     if(userClickedPattern.length === gamePattern.length){
-      setTimeout(function(){
+      setTimeout(function() {
         nextSequence();
       }, 1000);
     }
@@ -59,7 +59,7 @@ function checkAnswer(currentLevel){
     playSound("wrong");
 
     $("body").addClass("game-over");
-    setTimeout(function(){
+    setTimeout(function() {
       $("body").removeClass("game-over");
     }, 200);
 
@@ -71,21 +71,21 @@ function checkAnswer(currentLevel){
 
 
 // resets the game
-function startOver(){
+function startOver() {
   level = 0;
   gamePattern = [];
   gameStarted = false;
 }
 
-function playSound(name){
+function playSound(name) {
   let audio = new Audio("sounds/" + name + ".mp3");
   audio.play();
 }
 
-function animatePress(currentColor){
+function animatePress(currentColor) {
   let activeButton = $("#" + currentColor);
   activeButton.addClass("pressed");
-  setTimeout(function(){
+  setTimeout(function() {
     activeButton.removeClass("pressed");
   }, 100);
 }
